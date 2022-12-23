@@ -36,7 +36,9 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  void onSubmitSearchBar(String query) => _bloc.add(HomeEventSearch(query));
+  void onSubmitSearchBar(String query) {
+    if (!Helper.isEmpty(query)) _bloc.add(HomeEventSearch(query));
+  }
 
   @override
   Widget build(BuildContext context) {
