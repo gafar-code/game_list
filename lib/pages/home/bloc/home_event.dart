@@ -7,3 +7,8 @@ abstract class HomeEvent {
 class HomeEventStarted extends HomeEvent {
   const HomeEventStarted();
 }
+
+class HomeEventSearch extends HomeEvent {
+  final String query;
+  const HomeEventSearch(this.query);
+}

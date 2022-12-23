@@ -4,12 +4,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gafar_game_list/pages/home/bloc/home_bloc.dart';
 import 'package:gafar_game_list/pages/home/home_page.dart';
 import 'package:gafar_game_list/utils/dio.dart';
+import 'package:gafar_game_list/utils/helpers.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   DioHelper.init();
+  await Helper.loadPrecacheIcons();
   runApp(const GameNewsApp());
 }
 
@@ -29,6 +31,8 @@ class GameNewsApp extends StatelessWidget {
           statusBarBrightness: Brightness.dark,
         ),
         child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          themeMode: ThemeMode.dark,
           theme: ThemeData(textTheme: GoogleFonts.poppinsTextTheme()),
           home: const HomePage(),
         ),

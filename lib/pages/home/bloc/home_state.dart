@@ -14,5 +14,6 @@ class HomeLoading extends HomeState {
 
 class HomeLoaded extends HomeState {
   final List<Game> data;
-  const HomeLoaded({required this.data});
+  final String? query;
+  const HomeLoaded({required this.data, this.query});
 }

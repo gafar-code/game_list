@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 
 class Game {
   Game({
@@ -26,8 +27,6 @@ class Game {
     this.esrbRating,
     this.userGame,
     this.reviewsCount,
-    this.saturatedColor,
-    this.dominantColor,
     this.shortScreenshots,
     this.parentPlatforms,
     this.genres,
@@ -59,8 +58,6 @@ class Game {
   final EsrbRating? esrbRating;
   final dynamic userGame;
   final int? reviewsCount;
-  final Color? saturatedColor;
-  final Color? dominantColor;
   final List<ShortScreenshot>? shortScreenshots;
   final List<Platform>? parentPlatforms;
   final List<Genre>? genres;
@@ -92,7 +89,6 @@ class Game {
     EsrbRating? esrbRating,
     dynamic userGame,
     int? reviewsCount,
-    Color? saturatedColor,
     Color? dominantColor,
     List<ShortScreenshot>? shortScreenshots,
     List<Platform>? parentPlatforms,
@@ -125,8 +121,6 @@ class Game {
         esrbRating: esrbRating ?? this.esrbRating,
         userGame: userGame ?? this.userGame,
         reviewsCount: reviewsCount ?? this.reviewsCount,
-        saturatedColor: saturatedColor ?? this.saturatedColor,
-        dominantColor: dominantColor ?? this.dominantColor,
         shortScreenshots: shortScreenshots ?? this.shortScreenshots,
         parentPlatforms: parentPlatforms ?? this.parentPlatforms,
         genres: genres ?? this.genres,
@@ -149,7 +143,7 @@ class Game {
         reviewsTextCount: json["reviews_text_count"],
         added: json["added"],
         addedByStatus: AddedByStatus.fromJson(json["added_by_status"]),
-        metacritic: json["metacritic"] ?? null,
+        metacritic: json["metacritic"],
         suggestionsCount: json["suggestions_count"],
         updated: DateTime.parse(json["updated"]),
         id: json["id"],
@@ -159,12 +153,10 @@ class Game {
         esrbRating: json["esrb_rating"] == null ? null : EsrbRating.fromJson(json["esrb_rating"]),
         userGame: json["user_game"],
         reviewsCount: json["reviews_count"],
-        saturatedColor: colorValues.map[json["saturated_color"]],
-        dominantColor: colorValues.map[json["dominant_color"]],
         shortScreenshots: List<ShortScreenshot>.from(json["short_screenshots"].map((x) => ShortScreenshot.fromJson(x))),
         parentPlatforms: List<Platform>.from(json["parent_platforms"].map((x) => Platform.fromJson(x))),
         genres: List<Genre>.from(json["genres"].map((x) => Genre.fromJson(x))),
-        communityRating: json["community_rating"] ?? null,
+        communityRating: json["community_rating"],
       );
 }
 
@@ -211,10 +203,6 @@ class AddedByStatus {
         playing: json["playing"],
       );
 }
-
-enum Color { THE_0_F0_F0_F }
-
-final colorValues = EnumValues({"0f0f0f": Color.THE_0_F0_F0_F});
 
 class EsrbRating {
   EsrbRating({
@@ -358,9 +346,9 @@ class Rating {
       };
 }
 
-enum Title { SKIP, MEH, RECOMMENDED, EXCEPTIONAL }
+enum Title { skip, meh, recommended, exceptional }
 
-final titleValues = EnumValues({"exceptional": Title.EXCEPTIONAL, "meh": Title.MEH, "recommended": Title.RECOMMENDED, "skip": Title.SKIP});
+final titleValues = EnumValues({"exceptional": Title.exceptional, "meh": Title.meh, "recommended": Title.recommended, "skip": Title.skip});
 
 class ShortScreenshot {
   ShortScreenshot({
@@ -463,9 +451,9 @@ class Tag {
       };
 }
 
-enum Language { ENG, RUS }
+enum Language { eng, rus }
 
-final languageValues = EnumValues({"eng": Language.ENG, "rus": Language.RUS});
+final languageValues = EnumValues({"eng": Language.eng, "rus": Language.rus});
 
 class EnumValues<T> {
   Map<String, T> map;

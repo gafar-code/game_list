@@ -1,5 +1,3 @@
-import 'package:gafar_game_list/models/game.dart';
-
 class ResponseData {
   const ResponseData({
     this.count,
