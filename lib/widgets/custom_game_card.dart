@@ -29,7 +29,7 @@ class CustomGameCard extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
           child: Container(
             decoration: BoxDecoration(
-              color: useCard?  AppTheme.secondryColor : Colors.transparent,
+              color: useCard ? AppTheme.secondryColor : Colors.transparent,
               borderRadius: BorderRadius.circular(8),
             ),
             padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -89,39 +89,40 @@ class CustomGameCard extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Material(
-                            color: AppTheme.greenColor,
-                            borderRadius: BorderRadius.circular(12),
-                            child: SizedBox(
-                              height: 30,
-                              width: 52,
-                              child: Center(
-                                child: Text(
-                                  "${game.metacritic}",
-                                  style: const TextStyle(
-                                    color: Colors.white,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 18,
+                      if (game.metacritic != null)
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Material(
+                              color: AppTheme.greenColor,
+                              borderRadius: BorderRadius.circular(12),
+                              child: SizedBox(
+                                height: 30,
+                                width: 52,
+                                child: Center(
+                                  child: Text(
+                                    "${game.metacritic}",
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 18,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.only(top: 4),
-                            child: Text(
-                              "Metascore",
-                              style: TextStyle(
-                                color: AppTheme.white8Color,
-                                fontSize: 12,
+                            const Padding(
+                              padding: EdgeInsets.only(top: 4),
+                              child: Text(
+                                "Metascore",
+                                style: TextStyle(
+                                  color: AppTheme.white8Color,
+                                  fontSize: 12,
+                                ),
                               ),
                             ),
-                          ),
-                        ],
-                      )
+                          ],
+                        )
                     ],
                   )
                 ],
