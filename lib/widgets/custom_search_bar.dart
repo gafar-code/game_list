@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:gafar_game_list/utils/const.dart';
-import 'package:gafar_game_list/utils/theme.dart';
-import 'package:gafar_game_list/utils/validation.dart';
+import 'package:game/utils/const.dart';
+import 'package:game/utils/theme.dart';
+import 'package:game/utils/validation.dart';
 
 class CustomSearchBar extends StatefulWidget {
   final Function(String) onSubmit;
@@ -45,7 +45,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> with ValidationMixin 
           style: _textStyle,
           decoration: InputDecoration(
             filled: true,
-            fillColor: AppColor.secondryColor,
+            fillColor: AppTheme.secondryColor,
             hintText: 'Search here..',
             hintStyle: _textStyle,
             contentPadding: const EdgeInsets.all(16),

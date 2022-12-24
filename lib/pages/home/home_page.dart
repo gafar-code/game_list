@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:gafar_game_list/models/game.dart';
-import 'package:gafar_game_list/pages/home/bloc/home_bloc.dart';
-import 'package:gafar_game_list/utils/const.dart';
-import 'package:gafar_game_list/utils/helpers.dart';
-import 'package:gafar_game_list/utils/theme.dart';
-import 'package:gafar_game_list/widgets/custom_game_card.dart';
-import 'package:gafar_game_list/widgets/custom_search_bar.dart';
+import 'package:game/models/game.dart';
+import 'package:game/pages/home/bloc/home_bloc.dart';
+import 'package:game/utils/const.dart';
+import 'package:game/utils/helpers.dart';
+import 'package:game/utils/theme.dart';
+import 'package:game/widgets/custom_game_card.dart';
+import 'package:game/widgets/custom_search_bar.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 part 'widgets/list_label.dart';
@@ -43,7 +43,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColor.backgroundColor,
+      backgroundColor: AppTheme.backgroundColor,
       body: SafeArea(
         child: Column(
           children: [
@@ -59,7 +59,7 @@ class _HomePageState extends State<HomePage> {
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
                         HomeListLabel(bloc: _bloc, query: state.query),
-                        HomeListGame(bloc: _bloc),
+                        HomeListGame(bloc: _bloc, query: state.query),
                       ],
                     ),
                   );

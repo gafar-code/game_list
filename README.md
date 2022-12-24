@@ -1,4 +1,4 @@
-# gafar_game_list
+# game
 
 A new Flutter project.
 

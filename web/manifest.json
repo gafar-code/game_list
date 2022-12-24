@@ -1,6 +1,6 @@
 {
-    "name": "gafar_game_list",
-    "short_name": "gafar_game_list",
+    "name": "game",
+    "short_name": "game",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

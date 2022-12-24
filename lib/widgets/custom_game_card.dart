@@ -1,22 +1,38 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:gafar_game_list/models/game.dart';
-import 'package:gafar_game_list/utils/theme.dart';
+import 'package:game/models/game.dart';
+import 'package:game/router/app_arguments.dart';
+import 'package:game/router/app_router.dart';
+import 'package:game/utils/theme.dart';
 import 'package:intl/intl.dart';
 
 class CustomGameCard extends StatelessWidget {
   final Game game;
-  const CustomGameCard({super.key, required this.game});
+  final bool useCard;
+  const CustomGameCard({
+    super.key,
+    required this.game,
+    this.useCard = false,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Material(
       color: Colors.transparent,
       child: InkWell(
-        onTap: () => {},
+        onTap: () => Navigator.pushNamed(
+          context,
+          AppRoutes.detailPage,
+          arguments: DetailPageArguments(id: game.id!),
+        ),
         child: Padding(
-          padding: const EdgeInsets.fromLTRB(24, 8, 24, 8),
-          child: SizedBox(
+          padding: const EdgeInsets.fromLTRB(12, 8, 12, 8),
+          child: Container(
+            decoration: BoxDecoration(
+              color: useCard?  AppTheme.secondryColor : Colors.transparent,
+              borderRadius: BorderRadius.circular(8),
+            ),
+            padding: const EdgeInsets.symmetric(horizontal: 12),
             height: 268,
             child: Padding(
               padding: const EdgeInsets.only(top: 18),
@@ -64,11 +80,11 @@ class CustomGameCard extends StatelessWidget {
                             ),
                             const Text(
                               "Release date:",
-                              style: TextStyle(color: Color(0xFFD0D1D3), fontSize: 14),
+                              style: TextStyle(color: AppTheme.white8Color, fontSize: 14),
                             ),
                             Text(
                               DateFormat("MMMM, dd, yyyy").format(game.released!),
-                              style: const TextStyle(color: Color(0xFFD0D1D3), fontSize: 14),
+                              style: const TextStyle(color: AppTheme.white8Color, fontSize: 14),
                             ),
                           ],
                         ),
@@ -77,7 +93,7 @@ class CustomGameCard extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Material(
-                            color: AppColor.greenColor,
+                            color: AppTheme.greenColor,
                             borderRadius: BorderRadius.circular(12),
                             child: SizedBox(
                               height: 30,
@@ -99,7 +115,7 @@ class CustomGameCard extends StatelessWidget {
                             child: Text(
                               "Metascore",
                               style: TextStyle(
-                                color: Color(0xFFD0D1D3),
+                                color: AppTheme.white8Color,
                                 fontSize: 12,
                               ),
                             ),

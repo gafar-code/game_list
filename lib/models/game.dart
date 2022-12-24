@@ -1,459 +1,292 @@
-import 'package:flutter/material.dart';
+import 'added_by_status.dart';
+import 'developer.dart';
+import 'metaritic_platform.dart';
+import 'platform.dart';
+import 'rating.dart';
+import 'store.dart';
 
 class Game {
   Game({
+    this.id,
     this.slug,
     this.name,
-    this.playtime,
-    this.platforms,
-    this.stores,
+    this.nameOriginal,
+    this.description,
+    this.metacritic,
+    this.metacriticPlatforms,
     this.released,
     this.tba,
+    this.updated,
     this.backgroundImage,
+    this.backgroundImageAdditional,
+    this.website,
     this.rating,
     this.ratingTop,
     this.ratings,
-    this.ratingsCount,
-    this.reviewsTextCount,
     this.added,
     this.addedByStatus,
-    this.metacritic,
+    this.playtime,
+    this.screenshotsCount,
+    this.moviesCount,
+    this.creatorsCount,
+    this.achievementsCount,
+    this.parentAchievementsCount,
+    this.redditUrl,
+    this.redditName,
+    this.redditDescription,
+    this.redditLogo,
+    this.redditCount,
+    this.twitchCount,
+    this.youtubeCount,
+    this.reviewsTextCount,
+    this.ratingsCount,
     this.suggestionsCount,
-    this.updated,
-    this.id,
-    this.score,
-    this.clip,
-    this.tags,
-    this.esrbRating,
+    this.alternativeNames,
+    this.metacriticUrl,
+    this.parentsCount,
+    this.additionsCount,
+    this.gameSeriesCount,
     this.userGame,
     this.reviewsCount,
-    this.shortScreenshots,
+    this.saturatedColor,
+    this.dominantColor,
     this.parentPlatforms,
+    this.platforms,
+    this.stores,
+    this.developers,
     this.genres,
-    this.communityRating,
+    this.tags,
+    this.publishers,
+    this.esrbRating,
+    this.clip,
+    this.descriptionRaw,
   });
 
+  final int? id;
   final String? slug;
   final String? name;
-  final int? playtime;
-  final List<Platform>? platforms;
-  final List<Store>? stores;
+  final String? nameOriginal;
+  final String? description;
+  final int? metacritic;
+  final List<MetacriticPlatform>? metacriticPlatforms;
   final DateTime? released;
   final bool? tba;
+  final DateTime? updated;
   final String? backgroundImage;
+  final String? backgroundImageAdditional;
+  final String? website;
   final double? rating;
   final int? ratingTop;
   final List<Rating>? ratings;
-  final int? ratingsCount;
-  final int? reviewsTextCount;
   final int? added;
   final AddedByStatus? addedByStatus;
-  final int? metacritic;
+  final int? playtime;
+  final int? screenshotsCount;
+  final int? moviesCount;
+  final int? creatorsCount;
+  final int? achievementsCount;
+  final int? parentAchievementsCount;
+  final String? redditUrl;
+  final String? redditName;
+  final String? redditDescription;
+  final String? redditLogo;
+  final int? redditCount;
+  final int? twitchCount;
+  final int? youtubeCount;
+  final int? reviewsTextCount;
+  final int? ratingsCount;
   final int? suggestionsCount;
-  final DateTime? updated;
-  final int? id;
-  final dynamic score;
-  final dynamic clip;
-  final List<Tag>? tags;
-  final EsrbRating? esrbRating;
+  final List<dynamic>? alternativeNames;
+  final String? metacriticUrl;
+  final int? parentsCount;
+  final int? additionsCount;
+  final int? gameSeriesCount;
   final dynamic userGame;
   final int? reviewsCount;
-  final List<ShortScreenshot>? shortScreenshots;
-  final List<Platform>? parentPlatforms;
-  final List<Genre>? genres;
-  final int? communityRating;
+  final String? saturatedColor;
+  final String? dominantColor;
+  final List<ParentPlatform>? parentPlatforms;
+  final List<PlatformElement>? platforms;
+  final List<Store>? stores;
+  final List<Developer>? developers;
+  final List<Developer>? genres;
+  final List<Developer>? tags;
+  final List<Developer>? publishers;
+  final dynamic esrbRating;
+  final dynamic clip;
+  final String? descriptionRaw;
 
   Game copyWith({
+    int? id,
     String? slug,
     String? name,
-    int? playtime,
-    List<Platform>? platforms,
-    List<Store>? stores,
+    String? nameOriginal,
+    String? description,
+    int? metacritic,
+    List<MetacriticPlatform>? metacriticPlatforms,
     DateTime? released,
     bool? tba,
+    DateTime? updated,
     String? backgroundImage,
+    String? backgroundImageAdditional,
+    String? website,
     double? rating,
     int? ratingTop,
     List<Rating>? ratings,
-    int? ratingsCount,
-    int? reviewsTextCount,
     int? added,
     AddedByStatus? addedByStatus,
-    int? metacritic,
+    int? playtime,
+    int? screenshotsCount,
+    int? moviesCount,
+    int? creatorsCount,
+    int? achievementsCount,
+    int? parentAchievementsCount,
+    String? redditUrl,
+    String? redditName,
+    String? redditDescription,
+    String? redditLogo,
+    int? redditCount,
+    int? twitchCount,
+    int? youtubeCount,
+    int? reviewsTextCount,
+    int? ratingsCount,
     int? suggestionsCount,
-    DateTime? updated,
-    int? id,
-    dynamic score,
-    dynamic clip,
-    List<Tag>? tags,
-    EsrbRating? esrbRating,
+    List<dynamic>? alternativeNames,
+    String? metacriticUrl,
+    int? parentsCount,
+    int? additionsCount,
+    int? gameSeriesCount,
     dynamic userGame,
     int? reviewsCount,
-    Color? dominantColor,
-    List<ShortScreenshot>? shortScreenshots,
-    List<Platform>? parentPlatforms,
-    List<Genre>? genres,
-    int? communityRating,
+    String? saturatedColor,
+    String? dominantColor,
+    List<ParentPlatform>? parentPlatforms,
+    List<PlatformElement>? platforms,
+    List<Store>? stores,
+    List<Developer>? developers,
+    List<Developer>? genres,
+    List<Developer>? tags,
+    List<Developer>? publishers,
+    dynamic esrbRating,
+    dynamic clip,
+    String? descriptionRaw,
   }) =>
       Game(
+        id: id ?? this.id,
         slug: slug ?? this.slug,
         name: name ?? this.name,
-        playtime: playtime ?? this.playtime,
-        platforms: platforms ?? this.platforms,
-        stores: stores ?? this.stores,
+        nameOriginal: nameOriginal ?? this.nameOriginal,
+        description: description ?? this.description,
+        metacritic: metacritic ?? this.metacritic,
+        metacriticPlatforms: metacriticPlatforms ?? this.metacriticPlatforms,
         released: released ?? this.released,
         tba: tba ?? this.tba,
+        updated: updated ?? this.updated,
         backgroundImage: backgroundImage ?? this.backgroundImage,
+        backgroundImageAdditional: backgroundImageAdditional ?? this.backgroundImageAdditional,
+        website: website ?? this.website,
         rating: rating ?? this.rating,
         ratingTop: ratingTop ?? this.ratingTop,
         ratings: ratings ?? this.ratings,
-        ratingsCount: ratingsCount ?? this.ratingsCount,
-        reviewsTextCount: reviewsTextCount ?? this.reviewsTextCount,
         added: added ?? this.added,
         addedByStatus: addedByStatus ?? this.addedByStatus,
-        metacritic: metacritic ?? this.metacritic,
+        playtime: playtime ?? this.playtime,
+        screenshotsCount: screenshotsCount ?? this.screenshotsCount,
+        moviesCount: moviesCount ?? this.moviesCount,
+        creatorsCount: creatorsCount ?? this.creatorsCount,
+        achievementsCount: achievementsCount ?? this.achievementsCount,
+        parentAchievementsCount: parentAchievementsCount ?? this.parentAchievementsCount,
+        redditUrl: redditUrl ?? this.redditUrl,
+        redditName: redditName ?? this.redditName,
+        redditDescription: redditDescription ?? this.redditDescription,
+        redditLogo: redditLogo ?? this.redditLogo,
+        redditCount: redditCount ?? this.redditCount,
+        twitchCount: twitchCount ?? this.twitchCount,
+        youtubeCount: youtubeCount ?? this.youtubeCount,
+        reviewsTextCount: reviewsTextCount ?? this.reviewsTextCount,
+        ratingsCount: ratingsCount ?? this.ratingsCount,
         suggestionsCount: suggestionsCount ?? this.suggestionsCount,
-        updated: updated ?? this.updated,
-        id: id ?? this.id,
-        score: score ?? this.score,
-        clip: clip ?? this.clip,
-        tags: tags ?? this.tags,
-        esrbRating: esrbRating ?? this.esrbRating,
+        alternativeNames: alternativeNames ?? this.alternativeNames,
+        metacriticUrl: metacriticUrl ?? this.metacriticUrl,
+        parentsCount: parentsCount ?? this.parentsCount,
+        additionsCount: additionsCount ?? this.additionsCount,
+        gameSeriesCount: gameSeriesCount ?? this.gameSeriesCount,
         userGame: userGame ?? this.userGame,
         reviewsCount: reviewsCount ?? this.reviewsCount,
-        shortScreenshots: shortScreenshots ?? this.shortScreenshots,
+        saturatedColor: saturatedColor ?? this.saturatedColor,
+        dominantColor: dominantColor ?? this.dominantColor,
         parentPlatforms: parentPlatforms ?? this.parentPlatforms,
+        platforms: platforms ?? this.platforms,
+        stores: stores ?? this.stores,
+        developers: developers ?? this.developers,
         genres: genres ?? this.genres,
-        communityRating: communityRating ?? this.communityRating,
+        tags: tags ?? this.tags,
+        publishers: publishers ?? this.publishers,
+        esrbRating: esrbRating ?? this.esrbRating,
+        clip: clip ?? this.clip,
+        descriptionRaw: descriptionRaw ?? this.descriptionRaw,
       );
 
   factory Game.fromJson(Map<String, dynamic> json) => Game(
+        id: json["id"],
         slug: json["slug"],
         name: json["name"],
-        playtime: json["playtime"],
-        platforms: List<Platform>.from(json["platforms"].map((x) => Platform.fromJson(x))),
-        stores: List<Store>.from(json["stores"].map((x) => Store.fromJson(x))),
+        nameOriginal: json["name_original"],
+        description: json["description"],
+        metacritic: json["metacritic"],
+        metacriticPlatforms: json["metacritic_platforms"] == null ? null : List<MetacriticPlatform>.from(json["metacritic_platforms"].map((x) => MetacriticPlatform.fromJson(x))),
         released: DateTime.parse(json["released"]),
         tba: json["tba"],
+        updated: DateTime.parse(json["updated"]),
         backgroundImage: json["background_image"],
+        backgroundImageAdditional: json["background_image_additional"],
+        website: json["website"],
         rating: json["rating"].toDouble(),
         ratingTop: json["rating_top"],
-        ratings: List<Rating>.from(json["ratings"].map((x) => Rating.fromJson(x))),
-        ratingsCount: json["ratings_count"],
-        reviewsTextCount: json["reviews_text_count"],
+        ratings: json["ratings"] == null ? null : List<Rating>.from(json["ratings"].map((x) => Rating.fromJson(x))),
         added: json["added"],
         addedByStatus: AddedByStatus.fromJson(json["added_by_status"]),
-        metacritic: json["metacritic"],
+        playtime: json["playtime"],
+        screenshotsCount: json["screenshots_count"],
+        moviesCount: json["movies_count"],
+        creatorsCount: json["creators_count"],
+        achievementsCount: json["achievements_count"],
+        parentAchievementsCount: json["parent_achievements_count"],
+        redditUrl: json["reddit_url"],
+        redditName: json["reddit_name"],
+        redditDescription: json["reddit_description"],
+        redditLogo: json["reddit_logo"],
+        redditCount: json["reddit_count"],
+        twitchCount: json["twitch_count"],
+        youtubeCount: json["youtube_count"],
+        reviewsTextCount: json["reviews_text_count"],
+        ratingsCount: json["ratings_count"],
         suggestionsCount: json["suggestions_count"],
-        updated: DateTime.parse(json["updated"]),
-        id: json["id"],
-        score: json["score"],
-        clip: json["clip"],
-        tags: List<Tag>.from(json["tags"].map((x) => Tag.fromJson(x))),
-        esrbRating: json["esrb_rating"] == null ? null : EsrbRating.fromJson(json["esrb_rating"]),
+        alternativeNames: json["alternative_names"] == null ? null : List<dynamic>.from(json["alternative_names"].map((x) => x)),
+        metacriticUrl: json["metacritic_url"],
+        parentsCount: json["parents_count"],
+        additionsCount: json["additions_count"],
+        gameSeriesCount: json["game_series_count"],
         userGame: json["user_game"],
         reviewsCount: json["reviews_count"],
-        shortScreenshots: List<ShortScreenshot>.from(json["short_screenshots"].map((x) => ShortScreenshot.fromJson(x))),
-        parentPlatforms: List<Platform>.from(json["parent_platforms"].map((x) => Platform.fromJson(x))),
-        genres: List<Genre>.from(json["genres"].map((x) => Genre.fromJson(x))),
-        communityRating: json["community_rating"],
+        saturatedColor: json["saturated_color"],
+        dominantColor: json["dominant_color"],
+        parentPlatforms: json["parent_platforms"] == null ? null : List<ParentPlatform>.from(json["parent_platforms"].map((x) => ParentPlatform.fromJson(x))),
+        platforms: json["platforms"] == null ? null : List<PlatformElement>.from(json["platforms"].map((x) => PlatformElement.fromJson(x))),
+        stores: json["stores"] == null ? null : List<Store>.from(json["stores"].map((x) => Store.fromJson(x))),
+        developers: json["developers"] == null ? null : List<Developer>.from(json["developers"].map((x) => Developer.fromJson(x))),
+        genres: json["genres"] == null ? null : List<Developer>.from(json["genres"].map((x) => Developer.fromJson(x))),
+        tags: json["tags"] == null ? null : List<Developer>.from(json["tags"].map((x) => Developer.fromJson(x))),
+        publishers: json["publishers"] == null ? null : List<Developer>.from(json["publishers"].map((x) => Developer.fromJson(x))),
+        esrbRating: json["esrb_rating"],
+        clip: json["clip"],
+        descriptionRaw: json["description_raw"],
       );
 }
 
-class AddedByStatus {
-  AddedByStatus({
-    this.yet,
-    this.owned,
-    this.beaten,
-    this.toplay,
-    this.dropped,
-    this.playing,
-  });
+enum Language { eng }
 
-  final int? yet;
-  final int? owned;
-  final int? beaten;
-  final int? toplay;
-  final int? dropped;
-  final int? playing;
-
-  AddedByStatus? copyWith({
-    int? yet,
-    int? owned,
-    int? beaten,
-    int? toplay,
-    int? dropped,
-    int? playing,
-  }) =>
-      AddedByStatus(
-        yet: yet ?? this.yet,
-        owned: owned ?? this.owned,
-        beaten: beaten ?? this.beaten,
-        toplay: toplay ?? this.toplay,
-        dropped: dropped ?? this.dropped,
-        playing: playing ?? this.playing,
-      );
-
-  factory AddedByStatus.fromJson(Map<String, dynamic> json) => AddedByStatus(
-        yet: json["yet"],
-        owned: json["owned"],
-        beaten: json["beaten"],
-        toplay: json["toplay"],
-        dropped: json["dropped"],
-        playing: json["playing"],
-      );
-}
-
-class EsrbRating {
-  EsrbRating({
-    this.id,
-    this.name,
-    this.slug,
-    this.nameEn,
-    this.nameRu,
-  });
-
-  final int? id;
-  final String? name;
-  final String? slug;
-  final String? nameEn;
-  final String? nameRu;
-
-  EsrbRating? copyWith({
-    int? id,
-    String? name,
-    String? slug,
-    String? nameEn,
-    String? nameRu,
-  }) =>
-      EsrbRating(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        slug: slug ?? this.slug,
-        nameEn: nameEn ?? this.nameEn,
-        nameRu: nameRu ?? this.nameRu,
-      );
-
-  factory EsrbRating.fromJson(Map<String, dynamic> json) => EsrbRating(
-        id: json["id"],
-        name: json["name"],
-        slug: json["slug"],
-        nameEn: json["name_en"],
-        nameRu: json["name_ru"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "slug": slug,
-        "name_en": nameEn,
-        "name_ru": nameRu,
-      };
-}
-
-class Genre {
-  Genre({
-    this.id,
-    this.name,
-    this.slug,
-  });
-
-  final int? id;
-  final String? name;
-  final String? slug;
-
-  Genre copyWith({
-    int? id,
-    String? name,
-    String? slug,
-  }) =>
-      Genre(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        slug: slug ?? this.slug,
-      );
-
-  factory Genre.fromJson(Map<String, dynamic> json) => Genre(
-        id: json["id"],
-        name: json["name"],
-        slug: json["slug"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "slug": slug,
-      };
-}
-
-class Platform {
-  Platform({
-    this.platform,
-  });
-
-  final Genre? platform;
-
-  Platform copyWith({
-    Genre? platform,
-  }) =>
-      Platform(
-        platform: platform ?? this.platform,
-      );
-
-  factory Platform.fromJson(Map<String, dynamic> json) => Platform(
-        platform: Genre.fromJson(json["platform"]),
-      );
-}
-
-class Rating {
-  Rating({
-    this.id,
-    this.title,
-    this.count,
-    this.percent,
-  });
-
-  final int? id;
-  final Title? title;
-  final int? count;
-  final double? percent;
-
-  Rating copyWith({
-    int? id,
-    Title? title,
-    int? count,
-    double? percent,
-  }) =>
-      Rating(
-        id: id ?? this.id,
-        title: title ?? this.title,
-        count: count ?? this.count,
-        percent: percent ?? this.percent,
-      );
-
-  factory Rating.fromJson(Map<String, dynamic> json) => Rating(
-        id: json["id"],
-        title: titleValues.map[json["title"]],
-        count: json["count"],
-        percent: json["percent"].toDouble(),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "title": titleValues.reverse?[title],
-        "count": count,
-        "percent": percent,
-      };
-}
-
-enum Title { skip, meh, recommended, exceptional }
-
-final titleValues = EnumValues({"exceptional": Title.exceptional, "meh": Title.meh, "recommended": Title.recommended, "skip": Title.skip});
-
-class ShortScreenshot {
-  ShortScreenshot({
-    this.id,
-    this.image,
-  });
-
-  final int? id;
-  final String? image;
-
-  ShortScreenshot copyWith({
-    int? id,
-    String? image,
-  }) =>
-      ShortScreenshot(
-        id: id ?? this.id,
-        image: image ?? this.image,
-      );
-
-  factory ShortScreenshot.fromJson(Map<String, dynamic> json) => ShortScreenshot(
-        id: json["id"],
-        image: json["image"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "image": image,
-      };
-}
-
-class Store {
-  Store({
-    this.store,
-  });
-
-  final Genre? store;
-
-  Store copyWith({
-    Genre? store,
-  }) =>
-      Store(
-        store: store ?? this.store,
-      );
-
-  factory Store.fromJson(Map<String, dynamic> json) => Store(
-        store: Genre.fromJson(json["store"]),
-      );
-}
-
-class Tag {
-  Tag({
-    this.id,
-    this.name,
-    this.slug,
-    this.language,
-    this.gamesCount,
-    this.imageBackground,
-  });
-
-  final int? id;
-  final String? name;
-  final String? slug;
-  final Language? language;
-  final int? gamesCount;
-  final String? imageBackground;
-
-  Tag copyWith({
-    int? id,
-    String? name,
-    String? slug,
-    Language? language,
-    int? gamesCount,
-    String? imageBackground,
-  }) =>
-      Tag(
-        id: id ?? this.id,
-        name: name ?? this.name,
-        slug: slug ?? this.slug,
-        language: language ?? this.language,
-        gamesCount: gamesCount ?? this.gamesCount,
-        imageBackground: imageBackground ?? this.imageBackground,
-      );
-
-  factory Tag.fromJson(Map<String, dynamic> json) => Tag(
-        id: json["id"],
-        name: json["name"],
-        slug: json["slug"],
-        language: languageValues.map[json["language"]],
-        gamesCount: json["games_count"],
-        imageBackground: json["image_background"],
-      );
-
-  Map<String, dynamic> toJson() => {
-        "id": id,
-        "name": name,
-        "slug": slug,
-        "language": languageValues.reverse?[language],
-        "games_count": gamesCount,
-        "image_background": imageBackground,
-      };
-}
-
-enum Language { eng, rus }
-
-final languageValues = EnumValues({"eng": Language.eng, "rus": Language.rus});
+final languageValues = EnumValues({"eng": Language.eng});
 
 class EnumValues<T> {
   Map<String, T> map;

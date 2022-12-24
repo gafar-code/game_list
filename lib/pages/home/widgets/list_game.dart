@@ -2,7 +2,8 @@ part of '../home_page.dart';
 
 class HomeListGame extends StatelessWidget {
   final HomeBloc bloc;
-  const HomeListGame({super.key, required this.bloc});
+  final String? query;
+  const HomeListGame({super.key, required this.bloc, required this.query});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +11,10 @@ class HomeListGame extends StatelessWidget {
       child: PagedListView.separated(
         pagingController: bloc.pagingController,
         builderDelegate: PagedChildBuilderDelegate(
-          itemBuilder: (_, Game game, int index) => CustomGameCard(game: game),
+          itemBuilder: (_, Game game, int index) => CustomGameCard(
+            game: game,
+            useCard: query != null,
+          ),
           noItemsFoundIndicatorBuilder: _noItemsFoundIndicator,
           newPageProgressIndicatorBuilder: _newPageProgressIndicator,
           noMoreItemsIndicatorBuilder: _noMoreItemsIndicator,
@@ -20,9 +24,9 @@ class HomeListGame extends StatelessWidget {
     );
   }
 
-  Widget _noMoreItemsIndicator(context){
+  Widget _noMoreItemsIndicator(context) {
     return const Padding(
-      padding:  EdgeInsets.symmetric(vertical: 100),
+      padding: EdgeInsets.symmetric(vertical: 100),
       child: Text(
         "Data Not Found :(",
         textAlign: TextAlign.center,
@@ -68,7 +72,7 @@ class HomeListGame extends StatelessWidget {
   Widget _separator(context, index) {
     return const Divider(
       thickness: .8,
-      color: AppColor.secondryColor,
+      color: AppTheme.secondryColor,
     );
   }
 }

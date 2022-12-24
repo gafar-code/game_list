@@ -1,9 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gafar_game_list/models/game.dart';
-import 'package:gafar_game_list/repository/home.dart';
+import 'package:game/models/game.dart';
+import 'package:game/repository/game.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
 part 'home_event.dart';
@@ -22,7 +20,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   Future<void> _started(HomeEventStarted event, emit) async {
     emit(const HomeLoading());
 
-    final data = await HomeRepository.getDataGame(page: 1);
+    final data = await GameRepository.getDataGame(page: 1);
     searchController.clear();
     pagingController.value = PagingState(nextPageKey: firstPageKey + 1, itemList: data);
 
@@ -33,7 +31,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     emit(const HomeLoading());
 
     final String query = event.query;
-    final data = await HomeRepository.getDataGame(page: firstPageKey, query: query);
+    final data = await GameRepository.getDataGame(page: firstPageKey, query: query);
     pagingController.value = PagingState(nextPageKey: firstPageKey + 1, itemList: data);
 
     emit(HomeLoaded(data: data, query: query));
@@ -42,7 +40,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   Future<void> fetchData({int? page, required}) async {
     int currentPage = page ?? firstPageKey;
     String? query = searchController.text;
-    final data = await HomeRepository.getDataGame(page: currentPage, query: query);
+    final data = await GameRepository.getDataGame(page: currentPage, query: query);
     pagingController.appendPage(data, currentPage += 1);
   }
 }

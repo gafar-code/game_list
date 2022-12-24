@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gafar_game_list/pages/home/bloc/home_bloc.dart';
-import 'package:gafar_game_list/pages/home/home_page.dart';
-import 'package:gafar_game_list/utils/dio.dart';
-import 'package:gafar_game_list/utils/helpers.dart';
+import 'package:game/pages/detail_page/bloc/detail_bloc.dart';
+import 'package:game/pages/home/bloc/home_bloc.dart';
+import 'package:game/router/app_router.dart';
+import 'package:game/utils/dio.dart';
+import 'package:game/utils/helpers.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -23,6 +24,7 @@ class GameNewsApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         BlocProvider(create: (_) => HomeBloc()),
+        BlocProvider(create: (_) => DetailBloc()),
       ],
       child: AnnotatedRegion<SystemUiOverlayStyle>(
         value: const SystemUiOverlayStyle(
@@ -34,7 +36,8 @@ class GameNewsApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           themeMode: ThemeMode.dark,
           theme: ThemeData(textTheme: GoogleFonts.poppinsTextTheme()),
-          home: const HomePage(),
+          initialRoute: AppRoutes.homePage,
+          onGenerateRoute: AppRoutes.onGenerateRoute,
         ),
       ),
     );

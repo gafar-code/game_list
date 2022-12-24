@@ -1,4 +1,4 @@
-package com.example.gafar_game_list
+package com.gafar.game
 
 import io.flutter.embedding.android.FlutterActivity
 
