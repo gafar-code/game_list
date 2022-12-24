@@ -6,7 +6,9 @@ class DetailScreenShots extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Helper.isEmpty(screenShoots)
+        ? const SizedBox()
+        : SizedBox(
       height: 200,
       width: MediaQuery.of(context).size.width,
       child: ListView.builder(

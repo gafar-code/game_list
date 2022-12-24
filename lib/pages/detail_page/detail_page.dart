@@ -6,6 +6,7 @@ import 'package:game/models/game.dart';
 import 'package:game/models/platform.dart';
 import 'package:game/models/screen_shoot.dart';
 import 'package:game/pages/detail_page/bloc/detail_bloc.dart';
+import 'package:game/utils/helpers.dart';
 import 'package:game/utils/theme.dart';
 import 'package:intl/intl.dart';
 import 'package:readmore/readmore.dart';

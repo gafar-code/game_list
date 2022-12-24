@@ -42,14 +42,23 @@ class DetailHeader extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           child: Stack(
             children: [
-              CachedNetworkImage(
-                imageUrl: game.backgroundImageAdditional!,
-                height: 240,
-                width: MediaQuery.of(context).size.width,
-                colorBlendMode: BlendMode.srcOver,
-                color: Colors.black.withOpacity(.5),
-                fit: BoxFit.cover,
-              ),
+              if (game.backgroundImageAdditional != null)
+                CachedNetworkImage(
+                  imageUrl: game.backgroundImageAdditional!,
+                  height: 240,
+                  width: MediaQuery.of(context).size.width,
+                  colorBlendMode: BlendMode.srcOver,
+                  color: Colors.black.withOpacity(.5),
+                  fit: BoxFit.cover,
+                )
+              else
+                Material(
+                  color: Colors.black.withOpacity(.5),
+                  child: SizedBox(
+                    height: 240,
+                    width: MediaQuery.of(context).size.width,
+                  ),
+                ),
               Align(
                 alignment: const Alignment(0, -0.2),
                 child: ClipRRect(

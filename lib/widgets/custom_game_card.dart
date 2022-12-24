@@ -33,7 +33,7 @@ class CustomGameCard extends StatelessWidget {
               borderRadius: BorderRadius.circular(8),
             ),
             padding: const EdgeInsets.symmetric(horizontal: 12),
-            height: 268,
+            height: 272,
             child: Padding(
               padding: const EdgeInsets.only(top: 18),
               child: Column(

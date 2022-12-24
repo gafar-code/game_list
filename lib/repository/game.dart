@@ -19,7 +19,17 @@ class GameRepository {
       final List gameResults = response?.data["results"];
       for (var element in gameResults) {
         if (element != null) {
-          result.add(Game.fromJson(element));
+          final Game game = Game.fromJson(element);
+          
+          List<dynamic> requiredField = [
+            game.name,
+            game.backgroundImage,
+          ];
+
+          if (!requiredField.contains(null)) {
+            log(requiredField.toString());
+            result.add(game);
+          }
         }
       }
     } catch (e, s) {
@@ -43,7 +53,6 @@ class GameRepository {
   }
 
   static Future<List<ScreenShoot>> getScreenShots({required String gameId}) async {
-
     List<ScreenShoot> result = [];
 
     try {

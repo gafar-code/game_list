@@ -11,48 +11,51 @@ class DetailAditionalInfo extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(bottom: 6),
-            child: Text(
-              "Publishers",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
+          if (Helper.isEmpty(game.publishers))
+            const Padding(
+              padding: EdgeInsets.only(bottom: 6),
+              child: Text(
+                "Publishers",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
               ),
             ),
-          ),
           for (Developer dev in game.publishers!) ...[
             Text(
               dev.name!,
               style: const TextStyle(color: AppTheme.white8Color),
             ),
           ],
-          const Padding(
-            padding: EdgeInsets.only(top: 24, bottom: 6),
-            child: Text(
-              "Platforms",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
+          if (Helper.isEmpty(game.platforms))
+            const Padding(
+              padding: EdgeInsets.only(top: 24, bottom: 6),
+              child: Text(
+                "Platforms",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
               ),
             ),
-          ),
           for (PlatformElement dev in game.platforms!) ...[
             Text(
               dev.platform!.name!,
               style: const TextStyle(color: AppTheme.white8Color),
             ),
           ],
-          const Padding(
-            padding: EdgeInsets.only(top: 24, bottom: 6),
-            child: Text(
-              "Developers",
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 18,
+          if (Helper.isEmpty(game.developers))
+            const Padding(
+              padding: EdgeInsets.only(top: 24, bottom: 6),
+              child: Text(
+                "Developers",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 18,
+                ),
               ),
             ),
-          ),
           for (Developer dev in game.developers!) ...[
             Text(
               dev.name!,
