@@ -11,7 +11,7 @@ class DetailAditionalInfo extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          if (Helper.isEmpty(game.publishers))
+          if (!Helper.isEmpty(game.publishers))
             const Padding(
               padding: EdgeInsets.only(bottom: 6),
               child: Text(
@@ -28,7 +28,7 @@ class DetailAditionalInfo extends StatelessWidget {
               style: const TextStyle(color: AppTheme.white8Color),
             ),
           ],
-          if (Helper.isEmpty(game.platforms))
+          if (!Helper.isEmpty(game.platforms))
             const Padding(
               padding: EdgeInsets.only(top: 24, bottom: 6),
               child: Text(
@@ -45,7 +45,7 @@ class DetailAditionalInfo extends StatelessWidget {
               style: const TextStyle(color: AppTheme.white8Color),
             ),
           ],
-          if (Helper.isEmpty(game.developers))
+          if (!Helper.isEmpty(game.developers))
             const Padding(
               padding: EdgeInsets.only(top: 24, bottom: 6),
               child: Text(

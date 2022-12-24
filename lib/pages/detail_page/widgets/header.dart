@@ -19,12 +19,12 @@ class DetailHeader extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             SizedBox(
-              width: MediaQuery.of(context).size.width * .5,
+              width: MediaQuery.of(context).size.width * .8,
               child: Text(
                 game.name!,
                 textAlign: TextAlign.center,
                 maxLines: 1,
-                overflow: TextOverflow.ellipsis,
+                overflow: TextOverflow.clip,
                 style: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w700,
