@@ -7,6 +7,7 @@ Pagination should be implemented so that when the user reaches the bottom of the
 
 ## Getting Started
 
+### How To Debug
 1. clone repository with command below :
    ```git clone git@github.com:gafar-code/gafar_game_list.git```
 2. open app folder 
@@ -15,3 +16,13 @@ Pagination should be implemented so that when the user reaches the bottom of the
    ```flutter pub get```
 4. then run app
    ```flutter run```
+
+### How To Compile
+1. clone repository with command below :
+   ```git clone git@github.com:gafar-code/gafar_game_list.git```
+2. open app folder 
+   ```cd gafar_game_list```
+3. fetch pub dependency
+   ```flutter pub get```
+4. then run app
+   ```flutter build apk --release```
