@@ -26,14 +26,15 @@ class DetailHeader extends StatelessWidget {
                 fontSize: 18,
               ),
             ),
-            Text(
-              game.developers!.first.name!,
-              style: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w300,
-                fontSize: 14,
+            if (game.developers!.isNotEmpty)
+              Text(
+                game.developers!.first.name!,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.w300,
+                  fontSize: 14,
+                ),
               ),
-            ),
           ],
         ),
         background: SizedBox(
@@ -45,9 +46,9 @@ class DetailHeader extends StatelessWidget {
                 imageUrl: game.backgroundImageAdditional!,
                 height: 240,
                 width: MediaQuery.of(context).size.width,
-                fit: BoxFit.cover,
-                colorBlendMode: BlendMode.colorBurn,
+                colorBlendMode: BlendMode.srcOver,
                 color: Colors.black.withOpacity(.5),
+                fit: BoxFit.cover,
               ),
               Align(
                 alignment: const Alignment(0, -0.2),

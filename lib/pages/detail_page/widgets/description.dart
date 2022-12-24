@@ -40,7 +40,7 @@ class DetailDescription extends StatelessWidget {
             trimLines: 5,
             colorClickableText: Colors.blue,
             trimMode: TrimMode.Line,
-            textAlign: TextAlign.justify,
+            textAlign: TextAlign.start,
             trimCollapsedText: 'Read more',
             trimExpandedText: 'Show less',
             style: const TextStyle(
