@@ -26,3 +26,9 @@ Pagination should be implemented so that when the user reaches the bottom of the
    ```flutter pub get```
 4. then run app<br>
    ```flutter build apk --release```
+
+## Screenshoots
+![tia2727716702406472207](https://user-images.githubusercontent.com/53269873/209688463-8d3d08be-ac77-4525-a2c4-a3e7e2cbfc4e.png)
+![tia1716731925546677279](https://user-images.githubusercontent.com/53269873/209688468-205164c5-3d18-4d56-bb02-81246c15c10e.png)
+![tia8682695683045749713](https://user-images.githubusercontent.com/53269873/209688456-db69cf59-fc72-4877-95f6-390b685ed6b4.png)
+![tia1081427518819907826](https://user-images.githubusercontent.com/53269873/209688448-13bf2c1e-65bb-4a6b-a7e0-245a71dc440e.png)
