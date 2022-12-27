@@ -31,9 +31,6 @@ class _HomePageState extends State<HomePage> {
         await _bloc.fetchData(page: pageKey);
       });
     super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      _bloc.add(const HomeEventStarted());
-    });
   }
 
   void onSubmitSearchBar(String query) {
