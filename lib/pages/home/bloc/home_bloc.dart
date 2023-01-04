@@ -37,7 +37,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     emit(HomeLoaded(data: data, query: query));
   }
 
-  Future<void> fetchData({int? page, required}) async {
+  Future<void> fetchData({int? page}) async {
     int currentPage = page ?? firstPageKey;
     String? query = searchController.text;
     final data = await GameRepository.getDataGame(page: currentPage, query: query);
