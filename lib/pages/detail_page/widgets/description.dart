@@ -22,13 +22,14 @@ class DetailDescription extends StatelessWidget {
                     fontSize: 18,
                   ),
                 ),
-                Text(
-                  "Release date: ${DateFormat("MMMM, dd, yyyy").format(game.released!)}",
-                  style: const TextStyle(
-                    color: AppTheme.white8Color,
-                    fontSize: 14,
+                if (!Helper.isEmpty(game.released))
+                  Text(
+                    "Release date: ${DateFormat("MMMM, dd, yyyy").format(game.released!)}",
+                    style: const TextStyle(
+                      color: AppTheme.white8Color,
+                      fontSize: 14,
+                    ),
                   ),
-                ),
                 const SizedBox(height: 12),
                 ReadMoreText(
                   Bidi.stripHtmlIfNeeded(game.description!),
