@@ -2,15 +2,31 @@ import 'dart:developer';
 
 import 'package:dio/dio.dart';
 import 'package:game/utils/const.dart';
+import 'package:intl/intl.dart';
 
 class DioHelper {
   static Dio _dio = Dio();
+
+  static String currentYear = DateFormat("yyyy-MM-dd").format(DateTime.now());
+  static String lastYear = DateFormat("yyyy-MM-dd").format(DateTime.now().subtract(const Duration(days: 365)));
+  static String defaultDateRange = "$lastYear,$currentYear";
+  static String defaultOrder = "-released";
+  static int defaultPageSize = 20;
+  static int defaultPlatforms = 187;
+
+  static Map<String, dynamic> defaultqueryParameters = {
+    "page_size": defaultPageSize,
+    "platforms": defaultPlatforms,
+    "dates": defaultDateRange,
+    "ordering": defaultOrder,
+    "key": apiKey,
+  };
 
   static void init() {
     final option = BaseOptions(
       baseUrl: baseUrl,
       contentType: "application/json",
-      queryParameters: {'key': apiKey, 'page_size': 5},
+      queryParameters: defaultqueryParameters,
       connectTimeout: 30000,
       receiveTimeout: 30000,
     );

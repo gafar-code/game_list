@@ -45,7 +45,6 @@ class _DetailPageState extends State<DetailPage> {
         builder: (context, state) {
           if (state is DetailLoaded) {
             return NestedScrollView(
-              
                 headerSliverBuilder: (BuildContext context, _) {
                   return [
                     DetailHeader(game: state.game),
